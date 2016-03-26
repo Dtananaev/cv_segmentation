@@ -3,7 +3,7 @@ Computer vision: k-means segmentation
 K-means segmentation for ppm format.
 
 
-
+[![Build Status](https://travis-ci.org/Dtananaev/k_means.svg?branch=master)](https://travis-ci.org/Dtananaev/k_means)
 [![BSD2 License](http://img.shields.io/badge/license-BSD2-brightgreen.svg)](https://github.com/Dtananaev/k_means/blob/master/LICENSE.md) 
 
      
