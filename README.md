@@ -20,8 +20,8 @@ Computer vision: segmentation
 
 * two region segmentation based on variatinal methods allows to segment noisy images where the k-means segmentation ussualy fail because it adds noise to one of the segment. 2region segmentation approach could be easily extended to multi region segmentation
 <p align="center">
-  <img src="https://github.com/Dtananaev/cv_segmentation/blob/master/pictures/withWholeEasier.jpg" width="350"/>
-  <img src="https://github.com/Dtananaev/cv_segmentation/blob/master/pictures/withWholeEasier_2r.jpg" width="350"/>
+  <img src="https://github.com/Dtananaev/cv_segmentation/blob/master/pictures/withWholeEasier.jpeg" width="350"/>
+  <img src="https://github.com/Dtananaev/cv_segmentation/blob/master/pictures/withWholeEasier_2r.jpeg" width="350"/>
 </p>
      * To install use in terminal: 
          * cd two_region_segmentation
