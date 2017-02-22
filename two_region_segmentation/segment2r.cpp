@@ -266,20 +266,9 @@ CMatrix<float> segmentation2r(CMatrix<float> image, float mean1, float mean2 ){
        g_2 = 0.5* (A + C )*weight;
        g_3 = 0.5* (A + D )*weight;   
        g_4 = 0.5* (A + E )*weight;
-     //   g_1 = 1;
-      // g_2 = 1;
-     //  g_3 = 1;   
-     //  g_4 = 1;
-/*
-       std::cout<<"g1= "<< g_1<<"\n";
-       std::cout<<"g2= "<< g_2<<"\n";
-       std::cout<<"g3= "<< g_3<<"\n";
-       std::cout<<"g4= "<< g_4<<"\n";
-*/
-			u_new(x,y)=(1-w)*u(x,y)+ w*(g_2*u_new(x-1,y)+g_4*u_new(x,y-1)  + g_1*u(x+1,y)+g_3*u(x,y+1) +(pow((image(x,y)-mean2),2) -pow((image(x,y)-mean1),2) )/v  )/(g_1+g_2+g_3+g_4);
 
-    //double beta =  ( (image(x,y)-mean2)*(image(x,y)-mean2) - (image(x,y)-mean1)*(image(x,y)-mean1) ) /v ;
-   // u_new(x,y)=( g_2*u(x-1,y)+g_4*u(x,y-1)  + g_1*u(x+1,y)+g_3*u(x,y+1) +beta )/(g_1+g_2+g_3+g_4);
+       u_new(x,y)=(1-w)*u(x,y)+ w*(g_2*u_new(x-1,y)+g_4*u_new(x,y-1)  + g_1*u(x+1,y)+g_3*u(x,y+1) +(pow((image(x,y)-mean2),2) -pow((image(x,y)-mean1),2) )/v  )/(g_1+g_2+g_3+g_4);
+
 
 
         if(u_new(x,y)>1){
@@ -288,13 +277,10 @@ CMatrix<float> segmentation2r(CMatrix<float> image, float mean1, float mean2 ){
           u_new(x,y)=0;
         }
              diff_u+= (u_new(x,y)-u(x,y))*(u_new(x,y)-u(x,y));
-           //  std::cout<<"diff "<<(u_new(x,y)-u(x,y))*(u_new(x,y)-u(x,y))<<"\n";
      
 		}    
         diff_u=  diff_u/ number_of_pixels;
-        std::cout<<"diff_u "<<diff_u<<"\n";
          u=u_new;
-        // std::cin.get();
          cut(u,border);
          u=Neumann_bound(u,border);
          counter+=1;
@@ -302,7 +288,6 @@ CMatrix<float> segmentation2r(CMatrix<float> image, float mean1, float mean2 ){
 }while(diff_u >treshold  );
          cut(u_new,border);
 clamp( u_new);
- //u_new.normalize(0,255);
     return u_new;   
 }
 
@@ -316,16 +301,10 @@ int main(int argc, char** argv) {
 
 	if (argc==2){
 		fileNameInput=argv[1];
-	}else if (argc==3){
-		fileNameInput=argv[1];
-		k=atoi(argv[2]);
-	}else if (argc==4){
-		fileNameInput=argv[1];
-		k=atoi(argv[2]);
-		iter=atoi(argv[3]);
+	
 	}else{
 		std::cout<<"!!!WRONG INPUT!!!"<<"\n";
-		std::cout<<"Usage: kmeans inputfile <number of clusters k>  <number of iterations iter>"<<"\n";
+		std::cout<<"Usage: 2 region segmentation inputfile" <<"\n";
 		std::cout<<"The command should contain at least input file name. The default k=5 , iter=2."<<"\n";
 		return 0;    
 	}
