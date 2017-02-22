@@ -18,4 +18,8 @@ before_script:
 
 #check repository
 script:
+  - cd k_means 
+  - make
+  - cd ..
+  - cd two_region_segmentation
   - make
