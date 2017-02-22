@@ -18,7 +18,7 @@ The segmentation techniques based on variational methods and k-means.
      
      
 
-* two region segmentation based on variational methods allows to segment noisy images where the k-means segmentation ussualy fails because it adds noise to one of the segment. Two region segmentation approach could be easily extended to multi region segmentation
+* two region segmentation based on variational methods allows to segment noisy images where the k-means segmentation usually fails because it adds noise to one of the segment. Two region segmentation approach could be easily extended to multi region segmentation
 <p align="center">
   <img src="https://github.com/Dtananaev/cv_segmentation/blob/master/pictures/withWholeEasier.jpeg" width="350"/>
   <img src="https://github.com/Dtananaev/cv_segmentation/blob/master/pictures/withWholeEasier_2r.jpeg" width="350"/>
